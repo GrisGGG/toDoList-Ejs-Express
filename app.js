@@ -4,7 +4,6 @@ const date = require(__dirname + '/date.js')
 let ejs = require('ejs')
 
 const app = express();
-const port = 3000;
 //using body-parser and ejs
 app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
@@ -52,7 +51,7 @@ app.get('/about', (req, res) =>{
 })
 
 //if the server is running the it will running in the const port
-app.listen(port, () =>{
+app.listen(process.env.PORT || 3000, () =>{
     console.log("Port listen");
 })
 
