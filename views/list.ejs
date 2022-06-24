@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+  <!--Includinng the parts of the page-->
   <%- include("head") -%>
   <body>
     <div id="heading">
       <h1><%= listTitle %></h1>
     </div>
-
+    <!-- Looping through the array newListItems, so a new item element will be created-->
     <div class="box">
       <% newListItems.forEach(newItem => { %>
       <div class="item">
         <input type="checkbox" />
         <p name="newItem"><%= newItem %></p>
+        <!--  method post to delete the item selected-->
         <form action="/deleteItem" method="POST">
           <button
             class="delete"
@@ -23,6 +25,7 @@
         </form>
       </div>
       <% }) %>
+      <!--  method post to create the new item-->
       <form class="item" action="/" method="post">
         <input
           class="insert"
